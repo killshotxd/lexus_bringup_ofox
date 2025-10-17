@@ -1,0 +1,6 @@
+service bootctl-1-0 /system/bin/bootctl hal
+    interface aidl android.hardware.boot.IBootControl/default
+    class hal
+    user root
+    group root
+    oneshot

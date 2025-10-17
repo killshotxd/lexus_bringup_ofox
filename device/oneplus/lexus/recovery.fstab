@@ -1,0 +1,27 @@
+# Dynamic partitions
+/system                  ext4    system                  ro,barrier=1,discard         slotselect,logical,first_stage_mount
+/system_ext              ext4    system_ext              ro,barrier=1,discard         slotselect,logical,first_stage_mount
+/product                 ext4    product                 ro,barrier=1,discard         slotselect,logical,first_stage_mount
+/vendor                  ext4    vendor                  ro,barrier=1,discard         slotselect,logical,first_stage_mount
+/odm                     ext4    odm                     ro,barrier=1,discard         slotselect,logical,first_stage_mount
+/vendor_dlkm             ext4    vendor_dlkm             ro,barrier=1,discard         slotselect,logical,first_stage_mount
+/system_dlkm             ext4    system_dlkm             ro,barrier=1,discard         slotselect,logical,first_stage_mount
+
+# Boot images (A/B)
+/init_boot               emmc    /dev/block/by-name/init_boot            flags=slotselect
+/vendor_boot             emmc    /dev/block/by-name/vendor_boot          flags=slotselect
+/dtbo                    emmc    /dev/block/by-name/dtbo                 flags=slotselect
+
+# Metadata
+/metadata                f2fs    /dev/block/by-name/metadata             wait,check,formattable
+
+# Persist and misc
+/mnt/vendor/persist      ext4    /dev/block/bootdevice/by-name/persist   wait,check
+/misc                    emmc    /dev/block/bootdevice/by-name/misc      wait
+
+# Data (FBE v2 w/ metadata encryption - adjust if needed)
+/data                    f2fs    /dev/block/bootdevice/by-name/userdata  wait,check,quota,latemount,formattable,fileencryption=aes-256-xts:aes-256-cts+inlinecrypt_optimized,metadata_encryption=aes-256-xts,keydirectory=/metadata/vold/user_keys,fsverity
+
+# External storage (optional)
+/storage/sdcard1         vfat    /devices/platform/soc/8804000.sdhci/mmc_host*    voldmanaged=sdcard1:auto
+/storage/usbotg          vfat    /devices/platform/soc/*.ssusb/*.dwc3/xhci-hcd.*.auto*   voldmanaged=usbotg:auto

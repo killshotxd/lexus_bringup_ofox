@@ -1,0 +1,10 @@
+service fastbootd /system/bin/fastbootd
+    class main
+    seclabel u:r:fastbootd:s0
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:sys.fastbootd=1
+    start fastbootd
