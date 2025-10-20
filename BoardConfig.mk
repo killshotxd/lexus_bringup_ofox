@@ -264,6 +264,12 @@ OF_SCREEN_BLANK_ON_BOOT := 0 # Disables screen blanking (from your TW_NO_SCREEN_
 OF_USE_LOGD := 1
 OF_INCLUDE_LOGCAT := 1
 
+# --- Fix for missing theme ---
+TW_THEME := portrait_hdpi
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2400
+OF_SCREEN_W := 1080
+OF_SCREEN_H := 2400
 
 #
 # For local builds only
