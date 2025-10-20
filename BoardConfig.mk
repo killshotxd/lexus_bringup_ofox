@@ -192,7 +192,12 @@ RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/strace
 #RECOVERY_BINARY_SOURCE_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
 
 
-# OrangeFox-specific flags
+
+# ─────────────────────────────────────────────────────────────
+# OrangeFox flags (current, non-obsolete)
+# ─────────────────────────────────────────────────────────────
+# Maintainer name (use OF_MAINTAINER, not FOX_MAINTAINER)
+OF_MAINTAINER := killshotxd
 OF_USE_MAGISKBOOT := 1
 OF_USE_MAGISKBOOT_FOR_ALL_PATCHES := 1
 OF_DONT_PATCH_ENCRYPTED_DEVICE := 1
