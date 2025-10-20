@@ -1,11 +1,10 @@
-#
 # Copyright 2017 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#      http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -105,16 +104,16 @@ BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 
 # Recovery
 TARGET_RECOVERY_DEVICE_MODULES += \
-    android.hidl.allocator@1.0 \
-    android.hidl.memory@1.0 \
-    android.hidl.memory.token@1.0 \
-    libdmabufheap \
-    libhidlmemory \
-    libion \
-    libnetutils \
-    vendor.display.config@1.0 \
-    vendor.display.config@2.0 \
-    libdebuggerd_client
+    android.hidl.allocator@1.0 \
+    android.hidl.memory@1.0 \
+    android.hidl.memory.token@1.0 \
+    libdmabufheap \
+    libhidlmemory \
+    libion \
+    libnetutils \
+    vendor.display.config@1.0 \
+    vendor.display.config@2.0 \
+    libdebuggerd_client
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 # Use mke2fs to create ext4 images
@@ -142,48 +141,50 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Vibrator
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true
 
-# TWRP specific build flags
+# TWRP specific build flags (Compatible with OrangeFox)
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-TW_THEME := portrait_hdpi
-TW_FRAMERATE := 120
-TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone45/temp"
-TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/backlight/panel0-backlight/brightness"
-TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := "50"
-TW_CUSTOM_CLOCK_POS := "600"
-TW_CUSTOM_BATTERY_POS := "800"
 TW_QCOM_ATS_OFFSET := 1666528204500
-TW_EXCLUDE_APEX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
 TW_EXTRA_LANGUAGES := true
-TW_INCLUDE_CRYPTO := true
-TW_NO_EXFAT_FUSE := true
-TW_INCLUDE_RESETPROP := true
-TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
-TW_SCREEN_BLANK_ON_BOOT := true
-TW_NO_SCREEN_BLANK := true
 TW_OVERRIDE_SYSTEM_PROPS := \
-    "ro.build.product;ro.build.fingerprint=ro.vendor.build.fingerprint;ro.build.version.incremental"
+    "ro.build.product;ro.build.fingerprint=ro.vendor.build.fingerprint;ro.build.version.incremental"
 TW_OVERRIDE_PROPS_ADDITIONAL_PARTITIONS := vendor
 RECOVERY_LIBRARY_SOURCE_FILES += \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.allocator@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory.token@1.0.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libhidlmemory.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libnetutils.so \
-    $(TARGET_OUT_SHARED_LIBRARIES)/libdebuggerd_client.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
-    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.allocator@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/android.hidl.memory.token@1.0.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libdmabufheap.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libhidlmemory.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libion.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libnetutils.so \
+    $(TARGET_OUT_SHARED_LIBRARIES)/libdebuggerd_client.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@1.0.so \
+    $(TARGET_OUT_SYSTEM_EXT_SHARED_LIBRARIES)/vendor.display.config@2.0.so
 TW_LOAD_VENDOR_MODULES := "adsp_loader_dlkm.ko rproc_qcom_common.ko q6_dlkm.ko qcom_q6v5.ko qcom_q6v5_pas.ko qcom_esoc.ko qcom_sysmon.ko qcom-hv-haptics.ko goodix_ts.ko haptic_feedback.ko oplus_chg_v2.ko oplus_bsp_tp_custom.ko oplus_bsp_tp_common.ko oplus_bsp_tp_notify.ko oplus_bsp_tp_tcm_oncell.ko oplus_bsp_tp_tcm_S3910.ko oplus_bsp_tp_syna_common.ko oplus_bsp_tp_gt9966.ko oplus_bsp_tp_gt9916.ko oplus_bsp_tp_novatek_common.ko oplus_bsp_tp_nt36532_noflash.ko"
 TW_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 
-# TWRP Debug Flags
+# --- REMOVED CONFLICTING TWRP FLAGS ---
+# TW_THEME := portrait_hdpi
+# TW_FRAMERATE := 120
+# TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone45/temp"
+# TW_BRIGHTNESS_PATH := "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/backlight/panel0-backlight/brightness"
+# TW_STATUS_ICONS_ALIGN := center
+# TW_CUSTOM_CPU_POS := "50"
+# TW_CUSTOM_CLOCK_POS := "600"
+# TW_CUSTOM_BATTERY_POS := "800"
+# TW_EXCLUDE_APEX := true
+# TW_INCLUDE_CRYPTO := true
+# TW_NO_EXFAT_FUSE := true
+# TW_INCLUDE_RESETPROP := true
+# TW_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
+# TW_SCREEN_BLANK_ON_BOOT := true
+# TW_NO_SCREEN_BLANK := true
+# --- END REMOVED FLAGS ---
+
+# Debug Flags (Compatible with OrangeFox)
 #TWRP_EVENT_LOGGING := true
 TARGET_USES_LOGD := true
-TWRP_INCLUDE_LOGCAT := true
 TARGET_RECOVERY_DEVICE_MODULES += debuggerd
 RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/debuggerd
 TARGET_RECOVERY_DEVICE_MODULES += strace
@@ -191,23 +192,77 @@ RECOVERY_BINARY_SOURCE_FILES += $(TARGET_OUT_EXECUTABLES)/strace
 #TARGET_RECOVERY_DEVICE_MODULES += twrpdec
 #RECOVERY_BINARY_SOURCE_FILES += $(TARGET_RECOVERY_ROOT_OUT)/sbin/twrpdec
 
-# OrangeFox-specific flags
-OF_USE_MAGISKBOOT := 1
-OF_USE_MAGISKBOOT_FOR_ALL_PATCHES := 1
-OF_DONT_PATCH_ENCRYPTED_DEVICE := 1
-OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
-OF_ALLOW_DISABLE_NAVBAR := 0
-OF_DISABLE_MIUI_OTA_BY_DEFAULT := 1
-OF_PATCH_AVB20 := 1
-OF_SUPPORT_ALL_LANGUAGES := 1
-OF_KEEP_DM_VERITY := 1
-OF_KEEP_FORCE_ENCRYPT := 1
-OF_USE_GREEN_LED := 0
-OF_FLASHLIGHT_ENABLE := 1
+#
+# OrangeFox Recovery Flags
+#
+# Maintainer
+FOX_MAINTAINER := "killshotxd"
+
+# Version
+FOX_VERSION := R12.1
+FOX_BUILD_TYPE := Stable
+
+# Device
+TARGET_DEVICE_ALT := lexus, OP6131L1
+
+# Screen/UI
+OF_SCREEN_W := 1080
 OF_SCREEN_H := 2400
+OF_STATUS_H := 100 # Adjust status bar height if needed (based on notch)
 OF_STATUS_INDENT_LEFT := 48
 OF_STATUS_INDENT_RIGHT := 48
-OF_CLOCK_POS := 1
+OF_HIDE_NOTCH := 1
+OF_USE_120HZ_REFRESH_RATE := 1 # From your TW_FRAMERATE
+OF_CLOCK_POS := 1 # 1 = Center
+OF_ALLOW_DISABLE_NAVBAR := 0
+
+# Paths
+OF_BRIGHTNESS_PATH := "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/backlight/panel0-backlight/brightness"
+OF_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone45/temp"
+OF_FLASHLIGHT_ENABLE := 1
+OF_FLASHLIGHT_PATH := "/sys/class/leds/led:torch_0/brightness" # !! IMPORTANT: Verify this path !!
+
+# Partitions & A/B
+FOX_RECOVERY_INSTALL_PARTITION := /dev/block/bootdevice/by-name/recovery
+OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
+
+# Decryption / FBE
+OF_USE_QCOM_FBE_DECRYPTION := 1
+OF_DONT_PATCH_ENCRYPTED_DEVICE := 1
+OF_KEEP_DM_VERITY := 1
+OF_KEEP_FORCE_ENCRYPT := 1
+OF_PATCH_AVB20 := 1
+
+# MagiskBoot
+OF_USE_MAGISKBOOT := 1
+OF_USE_MAGISKBOOT_FOR_ALL_PATCHES := 1
+
+# OTA
+OF_DISABLE_MIUI_OTA_BY_DEFAULT := 1
+
+# Features
+OF_SUPPORT_ALL_LANGUAGES := 1
+OF_USE_GREEN_LED := 0
+OF_QUICK_BACKUP_LIST := /boot;/data;/system;/vendor; # Adjust as needed
+OF_DEFAULT_TIMEZONE := Asia/Kolkata # Set your default timezone
+OF_RUN_POST_FORMAT_PROCESS := 1 # Recommended for FBE devices
+
+# Binaries
+FOX_USE_NANO_EDITOR := 1
+FOX_USE_TAR_BINARY := 1
+FOX_USE_PIGZ_BINARY := 1
+FOX_REPLACE_TOOLBOX_GETPROP := 1
+
+# Converted TWRP Flags
+OF_EXCLUDE_APEX := 1
+OF_NO_EXFAT_FUSE := 1
+OF_INCLUDE_RESETPROP := 1
+OF_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := 1
+OF_SCREEN_BLANK_ON_BOOT := 0 # Disables screen blanking (from your TW_NO_SCREEN_BLANK)
+
+# Debug
+OF_USE_LOGD := 1
+OF_INCLUDE_LOGCAT := 1
 
 
 #
@@ -215,9 +270,7 @@ OF_CLOCK_POS := 1
 #
 # TWRP zip installer
 ifneq ($(wildcard bootable/recovery/installer/.),)
-    USE_RECOVERY_INSTALLER := true
-    RECOVERY_INSTALLER_PATH := bootable/recovery/installer
+    USE_RECOVERY_INSTALLER := true
+    RECOVERY_INSTALLER_PATH := bootable/recovery/installer
 endif
 # end local build flags
-#
-
