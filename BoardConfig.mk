@@ -234,6 +234,12 @@ OF_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := 1
 OF_USE_LOGD := 1
 OF_INCLUDE_LOGCAT := 1
 
+# TWRP specific build flags
+TW_FRAMERATE := 120
+TW_MAX_BRIGHTNESS := 550
+
+# Vibrator
+TW_SUPPORT_INPUT_AIDL_HAPTICS_FIX_OFF := true
 
 
 # ─────────────────────────────────────────────────────────────
