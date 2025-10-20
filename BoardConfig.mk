@@ -215,7 +215,7 @@ OF_DISABLE_MIUI_OTA_BY_DEFAULT := 1
 OF_SUPPORT_ALL_LANGUAGES := 1
 OF_USE_GREEN_LED := 0
 OF_QUICK_BACKUP_LIST := "/boot;/data;/system;/vendor;"  # must end with a semicolon
-OF_DEFAULT_TIMEZONE := "Asia/Kolkata"
+OF_DEFAULT_TIMEZONE := Asia/Kolkata
 OF_RUN_POST_FORMAT_PROCESS := 1
 
 # Extra binaries (watch your ramdisk size)
